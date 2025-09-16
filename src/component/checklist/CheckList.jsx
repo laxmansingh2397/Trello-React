@@ -52,7 +52,7 @@ const ChecklistModal = (props) => {
         <div className="modal-overlay">
             <div className="modal-content" onClick={handleModalClick}>
                 <div className="modal-header">
-                    <h4>checklist</h4>
+                    <h4>{props.cardName}</h4>
                     <button className="close-btn" >✕</button>
                 </div>
 

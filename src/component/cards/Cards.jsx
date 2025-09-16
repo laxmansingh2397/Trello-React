@@ -52,7 +52,7 @@ const Cards = (props) => {
             
             <div className="cards-list">
                 {cards.map(item =>
-                    <div onClick={() => {setOpenModal(true),setCardId(item.id)}} className="card-item" key={item.id}>
+                    <div onClick={() => {setOpenModal(true),setCardId(item.id),setCardName(item.name)}} className="card-item" key={item.id}>
                         <div className="card-top">
                             <div className="card-title">{item.name}</div>
                             <div>
