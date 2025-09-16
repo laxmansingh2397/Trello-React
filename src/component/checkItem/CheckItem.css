@@ -1,0 +1,13 @@
+.checkItem-div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px; 
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.add-item-div {
+    padding-top: 5px;
+    
+}
