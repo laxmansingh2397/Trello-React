@@ -1,13 +1,108 @@
-.checkItem-div {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 10px; 
-    justify-content: space-between;
-    padding: 5px;
+.checklist-container {
+    background-color: #f4f5f7;
+    border-radius: 6px;
+    padding: 10px;
+    width: 300px;
+    font-family: Arial, sans-serif;
+    margin-bottom: 20px;
 }
 
-.add-item-div {
-    padding-top: 5px;
-    
+.add-item-section {
+    margin-bottom: 15px;
+}
+
+.show-add-btn {
+    width: 100%;
+    padding: 8px;
+    background-color: #ebecf0;
+    border: none;
+    border-radius: 3px;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.show-add-btn:hover {
+    background-color: #dfe1e6;
+}
+
+.add-item-form input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #dcdcdc;
+    border-radius: 3px;
+    margin-bottom: 5px;
+}
+
+.add-item-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.add-btn {
+    background-color: #5aac44;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.add-btn:hover {
+    background-color: #519839;
+}
+
+.cancel-btn {
+    background: none;
+    border: none;
+    color: #6b778c;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.cancel-btn:hover {
+    text-decoration: underline;
+}
+
+.checkItem-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 3px;
+    padding: 8px;
+    margin-bottom: 8px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.checkItem-content {
+    display: flex;
+    align-items: center;
+}
+
+.checkItem-content input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: #6b778c;
+}
+
+.delete-btn {
+    background: none;
+    border: none;
+    color: #888;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.delete-btn:hover {
+    color: #eb5a46;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
 }

@@ -12,6 +12,7 @@ const Cards = (props) => {
     const [openModal, setOpenModal] = useState(false);
     const [closeModal, setCloseModal] = useState(false);
     const [cardId, setCardId] = useState(null);
+    
 
     const getAllCards = async () => {
         try {
@@ -54,7 +55,12 @@ const Cards = (props) => {
                     <div onClick={() => {setOpenModal(true),setCardId(item.id)}} className="card-item" key={item.id}>
                         <div className="card-top">
                             <div className="card-title">{item.name}</div>
-                            <div><button className="card-delete" onClick={() => deleteCardHandler(item.id)}>Delete</button></div>
+                            <div>
+                                <button className="card-delete" onClick={(e) => {
+                                    e.stopPropagation();
+                                    deleteCardHandler(item.id)}
+                                }>Delete</button>
+                            </div>
                         </div>
                     </div>
                 )}
@@ -74,7 +80,7 @@ const Cards = (props) => {
                     <button className="btn btn-muted" onClick={() => setOpenAddFor(props.listId)}>+ Add Card</button>
                 )}
             </div>
-            {openModal && <CheckList cardId={cardId} />}
+            {openModal && <CheckList cardId={cardId} cardName={cardName}/>}
         </>
     )
 }
