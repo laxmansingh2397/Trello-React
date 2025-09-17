@@ -4,9 +4,10 @@ import Lists from '../component/lists/Lists';
 
 function ListPage() {
     const { id } = useParams();
+    const {name} = useParams();
   return (
     <div>
-        <Lists boardId={id}/>
+        <Lists boardId={id} boardName={name}/>
     </div>
   )
 }

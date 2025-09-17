@@ -7,7 +7,6 @@ const Lists = (props) => {
     const [lists, getLists] = useState([]);
     const [errorMessage, setErrorMessage] = useState("");
     const [listName, setListName] = useState("");
-    // const [openAddFor, setOpenAddFor] = useState(null); // list id that has add form open
     const [openNewList, setOpenNewList] = useState(false);
     const getAllList = async () => {
         try {
@@ -52,7 +51,6 @@ const Lists = (props) => {
             <div className="board-header">
                 <div>
                     <div className="board-title">{props.boardName || 'Board'}</div>
-                    <div className="board-sub">Lists — {lists.length} items</div>
                 </div>
             </div>
 

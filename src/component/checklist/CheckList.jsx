@@ -8,6 +8,7 @@ const ChecklistModal = (props) => {
     const [errorMessage, setErrorMessage] = useState("");
     const [checklistName, setChecklistName] = useState("");
     const [isAdding, setIsAdding] = useState(false);
+    
 
     const getAllChecklists = async () => {
         try {
@@ -53,7 +54,7 @@ const ChecklistModal = (props) => {
             <div className="modal-content" onClick={handleModalClick}>
                 <div className="modal-header">
                     <h4>{props.cardName}</h4>
-                    <button className="close-btn" >✕</button>
+                    <button className="close-btn" onClick={() => props.closeModal(false)} >✕</button>
                 </div>
 
                 <div className="add-item-section">

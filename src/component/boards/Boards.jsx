@@ -46,14 +46,14 @@ function Boards() {
             <div className="boards-header">
                 <div className="boards-title">
                     <div className="logo-dot" />
-                    <h2>Boards</h2>
+                    <h2>My Boards</h2>
                 </div>
             </div>
 
             <div className="boards-wrap">
                 {boards.map((board, i) => (
                     
-                    <Link key={board.id} to={`/ListPage/${board.id}`}>
+                    <Link key={board.id} to={`/ListPage/${board.id}/${board.name}`}>
                         <div
                             key={board.id}
                             className={`board-tile board-bg-${(i % 4) + 1}`}

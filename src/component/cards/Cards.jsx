@@ -10,7 +10,6 @@ const Cards = (props) => {
     const [cardName, setCardName] = useState("");
     const [openAddFor, setOpenAddFor] = useState(null);
     const [openModal, setOpenModal] = useState(false);
-    const [closeModal, setCloseModal] = useState(false);
     const [cardId, setCardId] = useState(null);
     
 
@@ -80,7 +79,7 @@ const Cards = (props) => {
                     <button className="btn btn-muted" onClick={() => setOpenAddFor(props.listId)}>+ Add Card</button>
                 )}
             </div>
-            {openModal && <CheckList cardId={cardId} cardName={cardName}/>}
+            {openModal && <CheckList closeModal={setOpenModal} cardId={cardId} cardName={cardName} />}
         </>
     )
 }
