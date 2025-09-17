@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
 import { fetchCheckItem, createCheckItem, deleteCheckItem, updateCheckItem } from "../../utils/checkItem/checkItem";
 import '../checkItem/CheckItem.css';
+import {ClipLoader} from "react-spinners";
 
 const CheckItem = (props) => {
     const [checkItem, setCheckItem] = useState([]);
     const [errorMessage, setErrorMessage] = useState("");
     const [checkItemName, setCheckItemName] = useState("");
     const [isAdding, setIsAdding] = useState(false);
+    const [updatingId, setUpdatingId] = useState(null);
 
     const getAllCheckItem = async () => {
         try {
@@ -40,10 +42,13 @@ const CheckItem = (props) => {
 
     const updateCheckItemHandler = async (checkItemId, newState) => {
         try {
+            setUpdatingId(checkItemId);
             await updateCheckItem(props.cardId, props.checklistId, checkItemId, newState);
             await getAllCheckItem();
         } catch (err) {
             setErrorMessage(err.message || "Something went wrong");
+        } finally {
+            setUpdatingId(null);
         }
     };
 
@@ -82,10 +87,14 @@ const CheckItem = (props) => {
                                 const newState = item.state === "complete" ? "incomplete" : "complete";
                                 updateCheckItemHandler(item.id, newState);
                             }}
+                            disabled={updatingId === item.id}
                         />
                         <span className={item.state === "complete" ? "completed" : ""}>
                             {item.name}
                         </span>
+                        {updatingId === item.id && (
+                            <ClipLoader size={15} color="#000" />
+                        )}
                     </div>
                     <button className="delete-btn" onClick={() => deleteCheckItemHandler(props.checklistId, item.id)}>✕</button>
                 </div>
