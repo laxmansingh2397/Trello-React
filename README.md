@@ -1,12 +1,44 @@
-# React + Vite
+# Trello Clone 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📌 Features
 
-Currently, two official plugins are available:
+### ✅ Boards
+- View all boards (`/boards`)
+- Create new boards
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### ✅ Lists
+- View all lists in a selected board (`/boards/:board_id`)
+- Create new lists
+- Delete/archive lists
 
-## Expanding the ESLint configuration
+### ✅ Cards
+- View all cards in a list
+- Create new cards in a list
+- Delete cards
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### ✅ Checklists
+- View all checklists in a card
+- Create new checklists
+- Delete checklists
+
+### ✅ Checkitems
+- View all checkitems
+- Create checkitems
+- Delete checkitems
+- Mark checkitems as checked/unchecked
+
+---
+
+## 🧑‍💻 Technologies Used
+
+- ⚛️ React
+- 🧭 React Router (for client-side routing)
+- 🌐 Axios (for API requests)
+- 🛠️ Trello REST API
+
+---
+
+## Create a .env file in the root and add:
+- VITE_TRELLO_API_KEY=your_trello_api_key
+- VITE_TRELLO_TOKEN=your_trello_api_token
+
