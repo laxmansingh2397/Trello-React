@@ -13,6 +13,7 @@
 .boards-page {
     background-image: url('../../assets/hero.jpg');
     background-size: cover;
+    background-position: center;
     height: 100%;
     width: 100%;
     min-height: 100vh;

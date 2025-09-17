@@ -53,7 +53,7 @@ function Boards() {
             <div className="boards-wrap">
                 {boards.map((board, i) => (
                     
-                    <Link key={board.id} to={`/ListPage/${board.id}/${board.name}`}>
+                    <Link key={board.id} to={`/ListPage/${board.id}/${board.name}?image=${encodeURIComponent(board.prefs.backgroundImage)}`}>
                         <div
                             key={board.id}
                             className={`board-tile board-bg-${(i % 4) + 1}`}

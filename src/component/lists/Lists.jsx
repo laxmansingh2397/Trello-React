@@ -1,9 +1,14 @@
-import { fetchAllListsOnBoard, createList, deleteList} from '../../utils/list/lists';
+import { fetchAllListsOnBoard, createList, deleteList } from '../../utils/list/lists';
 import { useState, useEffect } from 'react';
 import './Lists.css';
 import Cards from '../cards/Cards';
 
 const Lists = (props) => {
+    const defaultBackground = 'https://d2k1ftgv7pobq7.cloudfront.net/images/backgrounds/gradients/rainbow.svg';
+    const backgroundImage = props.backgroundImage && props.backgroundImage !== "null" && props.backgroundImage !== "undefined"
+    ? props.backgroundImage
+    : defaultBackground;
+    
     const [lists, getLists] = useState([]);
     const [errorMessage, setErrorMessage] = useState("");
     const [listName, setListName] = useState("");
@@ -23,7 +28,7 @@ const Lists = (props) => {
         if (listName.trim().length <= 0) return;
 
         try {
-            await createList(listName,props.boardId);
+            await createList(listName, props.boardId);
             await getAllList();
             setListName("")
         } catch (err) {
@@ -47,7 +52,7 @@ const Lists = (props) => {
     }, [])
 
     return (
-        <div className="lists-board">
+        <div className="lists-board" style={{backgroundImage:`url(${backgroundImage})`}}>
             <div className="board-header">
                 <div>
                     <div className="board-title">{props.boardName || 'Board'}</div>
@@ -79,7 +84,7 @@ const Lists = (props) => {
                             <>
                                 <input type="text" value={listName} onChange={(e) => setListName(e.target.value)} placeholder='Enter list title' />
                                 <div className="list-actions">
-                                    <button className="btn btn-primary" onClick={() => { createListHandler(listName,props.boardId); setOpenNewList(false); }}>Add List</button>
+                                    <button className="btn btn-primary" onClick={() => { createListHandler(listName, props.boardId); setOpenNewList(false); }}>Add List</button>
                                     <button className="btn btn-muted" onClick={() => { setListName(''); setOpenNewList(false); }}>Cancel</button>
                                 </div>
                             </>
@@ -89,7 +94,7 @@ const Lists = (props) => {
                     </div>
                 </div>
             </div>
-            {errorMessage && <div style={{color: '#b00020', padding: '8px 24px'}}>{errorMessage}</div>}
+            {errorMessage && <div style={{ color: '#b00020', padding: '8px 24px' }}>{errorMessage}</div>}
         </div>
     )
 }
